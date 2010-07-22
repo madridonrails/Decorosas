@@ -1,0 +1,13 @@
+INSTRUCTION FOR INSTALLING THE APPLICATION
+
+-Copy config/database.example.yml to config/database.yml and edit this file in order to configure your database
+
+-Install gems dependencies via rake gems:install. These gems can be found at the file config/environment.rb
+
+Note: since rmagick can be a little tricky to be installed, see the documentation at http://rmagick.rubyforge.org/install-faq.html
+
+-Since the application uses paperclip plugin, imagemagick must be installed on the server the app is running
+
+-Run rake db:migrate
+
+-Run rake application:init_admin -> This will create a new admin user, with both login and password as "admin". It is recommended to change the password in the application

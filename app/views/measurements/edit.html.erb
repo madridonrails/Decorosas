@@ -1,0 +1,6 @@
+<%= object_messages(@measurement) %>
+<div id="content" class="simpleform">
+  <%  form_for @measurement, :url => {:action => :update}, :html => {:multipart => true} do |f| %>
+    <%= render :partial => 'form', :locals => {:f => f} %>
+  <% end %>
+</div>

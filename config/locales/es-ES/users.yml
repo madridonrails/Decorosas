@@ -1,0 +1,6 @@
+es-ES:
+  user:
+    index:
+      legend: Usuarios
+    new_user: Nuevo usuario
+    password_confirmation: Confirmación de contraseña

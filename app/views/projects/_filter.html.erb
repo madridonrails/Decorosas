@@ -1,0 +1,17 @@
+<%= form_tag projects_url, :method => :get %>
+  <table>
+    <tr>
+      <td><%= t 'activerecord.attributes.project.code' %></td>
+      <td><%= text_field_tag 'filter[code]', (@filter[:code] rescue '') %></td>
+    </tr>
+    <tr>
+      <td><%= t 'activerecord.attributes.project.state' %></td>
+      <td><%= select_tag 'filter[state]', options_for_select([['', '']].concat(Project.aasm_states.collect{|s| [s.name.to_s, s.name.to_s]}), @filter ? @filter[:state] : '')%></td>
+    </tr>
+    <tr>
+      <td><%= t 'activerecord.attributes.project.address' %></td>
+      <td><%= text_field_tag 'filter[address]', (@filter[:address] rescue '') %></td>
+    </tr>
+  </table>
+  <%= submit_tag t('general.filter'), {:class => "button"}%>
+</form>

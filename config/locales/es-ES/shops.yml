@@ -1,0 +1,6 @@
+es-ES:
+  shop:
+    index:
+      legend: Tiendas
+    new_shop: Nueva tienda
+    no_shop: No hay tiendas

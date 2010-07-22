@@ -1,0 +1,25 @@
+<%= object_messages %>
+<div id="content" class="simpleform">
+  <h2><%= t'element.total_price_for_project' %>: <%= number_to_currency(Project.find(params[:project_id]).cost_price) %></h2>
+  <br/>
+  <fieldset>
+    <legend><%=t('element.index.legend') %><br/></legend>
+  </fieldset>
+  
+  <div id="table-area">
+
+    <p class="add-link">
+      <%= link_to t('general.new'), new_project_element_path(params[:project_id]) %> <%=image_tag 'icon-add.gif', :align => "absmiddle"%>
+    </p>
+    <br/>
+
+    <% unless @elements.empty? %>
+      <table class="tabla">
+        <%= render :partial => 'header' %>
+        <%= render :partial => 'element', :collection => @elements %>
+      </table>
+    <% end %>
+    <%= link_to t('general.cancel'), edit_project_path(params[:project_id]) %>
+  </div>
+  <%= will_paginate @elements, :prev_label => t('pagination.prev'), :next_label => t('pagination.next'), :params => params.clone.delete_if{|k,v| k == 'controller' || k == 'action' || k == 'page'}, :class => 'page-navigation' %>
+</div>

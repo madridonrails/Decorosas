@@ -1,0 +1,35 @@
+<div id="project-area">
+  <div id="project-info-shop">
+    <fieldset>
+      <legend><%= t('project.show.shop_legend')%></legend>
+      <dl>
+        <dt><%= t('activerecord.attributes.project.shop_id') %>:</dt>
+        <dd><%= h @project.shop.name  %></dd><br/>
+      </dl>
+    </fieldset>
+  </div>
+  <div id="project-info-client">
+    <fieldset>
+      <legend><%= t('project.show.client_legend') %></legend>
+      <dl>
+        <dt><%= t('activerecord.attributes.client.name') %>:</dt>
+        <dd><%=h @project.client.name%></dd><br/>
+        <dt><%= t('activerecord.attributes.client.phone') %>:</dt>
+        <dd><%=h @project.client.phone%></dd><br/>
+        <dt><%= t('activerecord.attributes.client.address') %>:</dt>
+        <dd><%= @project.client.address%></dd><br/>
+        <dt><%= t('activerecord.attributes.client.contact_schedule') %>:</dt>
+        <dd><%= @project.client.contact_schedule%></dd><br/>
+      </dl>
+    </fieldset>
+  </div>
+  <div id="project-info-project">
+    <fieldset>
+      <legend><%= t('project.show.project_legend')%></legend>
+      <span><b><%= t('activerecord.attributes.project.code') %>:</b> <%=h @project.code%></span><br/>
+      <span><b><%= t('activerecord.attributes.project.address') %>:</b> <%=h @project.address%></span><br/>
+      <span><b><%= t('activerecord.attributes.project.accepted_estimate_id') %>:</b> <%= @project.estimate.description rescue ''%> <%= "(#{number_to_currency(@project.estimate.price)})" rescue ''%></span><br/>
+    </fieldset>
+  </div>
+  <span></span>
+</div>

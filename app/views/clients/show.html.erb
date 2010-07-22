@@ -1,0 +1,9 @@
+<div id="client-area">
+  <span><b><%= t 'activerecord.attributes.client.name' %>: </b><%= h @client.name %></span><br/>
+  <span><b><%= t 'activerecord.attributes.client.email'%>: </b><%= h @client.email %></span><br/>
+  <span><b><%= t 'activerecord.attributes.client.phone' %>: </b><%= h @client.phone %></span><br/>
+  <span><b><%= t 'activerecord.attributes.client.address' %>: </b><%= h @client.address %></span><br/>
+  <span><b><%= t 'activerecord.attributes.client.contact_schedule' %>: </b><%= h @client.contact_schedule %></span><br/>
+  <span><b><%= t 'activerecord.attributes.client.notes' %>: </b><%= h @client.notes %></span><br/>
+</div>
+<p class="add-link"><%= link_to t('general.edit'), edit_client_url(@client) %> | <%= link_to t('general.back'), clients_url %></p>

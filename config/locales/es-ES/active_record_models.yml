@@ -1,0 +1,67 @@
+es-ES:
+  activerecord:
+    attributes:
+      client:
+        address: Dirección
+        contact_schedule: Horario de contacto
+        email: email
+        name: Nombre
+        notes: Notas
+        phone: Teléfono
+      element:
+        assembly_price: Precio de montaje
+        cost_price: Precio unitario
+        description: Descripción
+        final_price: Precio final
+        total_cost_price: Precio total de coste
+        units: Unidades
+      estimate:
+        description: Descripción
+        measurement_id: Medida
+        notes: Notas
+        price: Precio
+        project_id: Proyecto
+      image:
+        data: Archivo
+      measurement:
+        description: Descripción
+        notes: Notas
+      project:
+        address: Dirección
+        client_id: Cliente
+        code: Código
+        accepted_estimate_id: Presupuesto aceptado
+        notes: Notas
+        shop_id: Tienda
+        state: Estado
+      shop:
+        address: Dirección
+        central: Central
+        name: Nombre
+      user:
+        admin: Administrador
+        email: email
+        login: Login
+        password: Contraseña
+        shop_id: Tienda
+    errors:
+      messages:
+        blank: no puede estar vacío
+        not_a_number: tiene que ser numérico
+        shop: Tienda
+      models:
+        project:
+          attributes:
+            accepted_estimate_id:
+              must_have_measurements: tiene que tener medidas asociadas
+            code:
+              taken: ya está siendo utilizado
+            shop_id:
+              same_as_user: tiene que ser la misma a la que pertenece el usuario
+        user:
+          attributes:
+            email:
+              invalid: no es válido
+            login:
+              taken: ya existe
+

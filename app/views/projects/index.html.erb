@@ -1,0 +1,22 @@
+<%= object_messages %>
+<div id="content" class="simpleform">
+  <fieldset>
+    <legend><%=t('project.index.legend') %><br/></legend>
+  </fieldset>
+  <%= render :partial => 'filter' %>
+  <div id="table-area">
+    
+    <p class="add-link">
+      <%= link_to t('general.new'), new_project_path %> <%=image_tag 'icon-add.gif', :align => "absmiddle"%>
+    </p>
+    <br/>
+
+    <% unless @projects.empty? %>
+      <table class="tabla">
+        <%= render :partial => 'header' %>
+        <%= render :partial => 'project', :collection => @projects %>
+      </table>
+    <% end %>
+  </div>
+  <%= will_paginate @projects, :prev_label => t('pagination.prev'), :next_label => t('pagination.next'), :params => params.clone.delete_if{|k,v| k == 'controller' || k == 'action' || k == 'page'}, :class => 'page-navigation' %>
+</div>

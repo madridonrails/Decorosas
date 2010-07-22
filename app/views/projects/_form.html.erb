@@ -1,0 +1,91 @@
+<fieldset>
+  <legend><%= t'project.form.legend.basic' %></legend>
+  <ol>
+    <li>
+      <%= f.label :shop_id, t('activerecord.attributes.project.shop_id') %>
+      <%
+      if is_admin?
+        shops = Shop.all
+      else
+        shops = @project.new_record? ? [Shop.find(current_user.shop.id)] : [@project.shop]
+      end
+      %>
+      <%= f.select(:shop_id, shops.collect{|s| [s.name, s.id]}, {}, :onchange => 'update_code()') %>
+    </li>
+    <li>
+      <%= f.label :client_id, t('activerecord.attributes.project.client_id') %>
+      <%= f.select(:client_id, Client.all.collect{|c| ["#{c.address} / #{c.name}", c.id]},{}, :onchange => 'update_address()') %>
+    </li>
+    <li>
+      <%= f.label :address, t('activerecord.attributes.project.address') %>
+      <%= f.text_field(:address, :onchange => 'update_code()') %>
+      <span class="tip"><%= t('project.form.address.leave_blank_for_client_address') %></span>
+    </li>
+    <li>
+      <%= f.label :code, t('activerecord.attributes.project.code') %>
+      <%= f.text_field(:code) %>
+      <span class="tip"><%= t('project.form.code.leave_blank_for_automatic_code') %> (<%= t('project.form.code.example') %>)</span>
+    </li>
+  </ol>
+  <%= javascript_tag 'update_address()' %>
+  <%= javascript_tag 'update_code()' %>
+  <!--%= observe_field 'project_address', :function => 'update_code()' %-->
+</fieldset>
+
+<% unless @project.new_record? || (!is_admin? & !is_current_shop?(@project.shop))%>
+<br/>
+<fieldset>
+  <legend><%= t'project.form.legend.estimates' %></legend>
+  <ol>
+      <% @project.estimates.each do |estimate| %>
+        <li>
+          <%= f.radio_button(:accepted_estimate_id, estimate.id)%>
+          &nbsp;
+          <%= f.label("accepted_estimate_id_#{estimate.id}", "<strong>#{estimate.description.sub("\n", "<br/>") rescue ''}</strong>#{'<br/>' if estimate.notes}#{estimate.notes.sub("\n", '<br/>') rescue ''}(#{number_to_currency(estimate.price)})", :class=>'description-value-button') %>
+          <span class="estimate-actions">
+            <%= link_to image_tag('icon-view.gif', :alt => (t 'general.show'),  :title => (t 'general.show')), project_estimate_path(@project.id, estimate.id) %>
+            <%= link_to image_tag('icon-edit.gif', :alt => t('general.edit'), :title => t('general.edit')), edit_project_estimate_path(@project.id, estimate.id) %>
+            <%= link_to image_tag('icon-delete.gif', :alt => (t 'general.delete'), :title =>  (t 'general.delete') ), project_estimate_url(@project.id, estimate),:method => :delete, :confirm => (t 'general.are_you_sure')  %>
+          </span>
+        <% end %>
+      <li>
+        <%= f.radio_button(:accepted_estimate_id, 0, :checked => @project.accepted_estimate_id.nil? || @project.accepted_estimate_id == 0) %>
+        &nbsp;
+        <%= f.label(:accepted_estimate_id_, t('project.form.select_no_estimate')) %>
+      </li>
+  </ol>
+    <p>
+      <label>&nbsp;</label><%= link_to t('project.form.create_estimate'), new_project_estimate_path(@project.id)%> <%=image_tag 'icon-add.gif'%>
+    </p>
+</fieldset>
+
+<fieldset>
+  <legend><%= t'project.form.legend.measurements' %></legend>
+  <ol>
+      <% @project.measurements.each do |measurement| %>
+        <li>
+          &nbsp;
+          <%= f.label("accepted_measurement_id_#{measurement.id}", "<strong>#{measurement.description.sub("\n", "<br/>") rescue ''}</strong>#{'<br/>' if measurement.notes}#{measurement.notes.sub("\n", '<br/>') rescue ''}", :class=>'description-value-button') %>
+          <span class="measurement-actions">
+            <%= link_to image_tag('icon-view.gif', :alt => (t 'general.show'),  :title => (t 'general.show')), project_measurement_path(@project.id, measurement.id) %>
+            <%= link_to image_tag('icon-edit.gif', :alt => t('general.edit'), :title => t('general.edit')), edit_project_measurement_path(@project.id, measurement.id) %>
+            <%= link_to image_tag('icon-delete.gif', :alt => (t 'general.delete'), :title =>  (t 'general.delete') ), project_measurement_url(@project.id, measurement),:method => :delete, :confirm => (t 'general.are_you_sure')  %>
+          </span>
+        </li>
+      <% end %>
+  </ol>
+    <p>
+      <label>&nbsp;</label><%= link_to t('project.form.create_measurement'), new_project_measurement_path(@project.id)%> <%=image_tag 'icon-add.gif'%>
+    </p>
+</fieldset>
+  <% if is_admin? %>
+<br/>
+  <fieldset>
+    <legend><%= t'project.form.legend.elements' %></legend>
+    <ol>
+      <li><%= link_to t('element.management'), project_elements_path(@project.id) %></li>
+    </ol>
+  </fieldset>
+  <% end %>
+<%end%>
+<%= submit_tag t('general.accept'), {:class => "button"}  %> &nbsp; <%= link_to t('general.cancel'), projects_url %>

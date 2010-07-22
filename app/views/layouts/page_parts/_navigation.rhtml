@@ -1,0 +1,17 @@
+<div id="navigation">
+  <ul>
+    <%
+    if is_admin?
+      options_array = [[t('navigation.items.projects'), projects_path], [t('navigation.items.clients'), clients_path], [t('navigation.items.shops'), shops_path], [t('navigation.items.users'), users_path]]
+    else
+      options_array = [[t('navigation.items.projects'), projects_path], [t('navigation.items.clients'), clients_path], [t('navigation.items.edit_current_user'), edit_user_path(current_user)]]
+    end
+    %>
+    <% unless options_array.blank? %>
+    <% options_array.each do |object| %>
+      <% str_class = object[1][1..100].starts_with?(params[:controller]) ? ' class="currant"' : '' %>
+      <li><%= link_to "<span#{str_class}>#{object[0]}</span>", {:controller => object[1]} %></li>
+    <% end%>
+    <% end %>
+  </ul>
+</div>

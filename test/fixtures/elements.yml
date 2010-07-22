@@ -1,0 +1,6 @@
+element_one:
+  description: Description of element one
+  estimate_id: 1
+  cost_price: 10.5
+  units: 10
+  assembly_price: 3.5

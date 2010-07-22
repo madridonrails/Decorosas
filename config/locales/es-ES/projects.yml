@@ -1,0 +1,73 @@
+es-ES:
+  project:
+    back_to_projects: Volver al listado de proyectos
+    create:
+      failure: No se ha podido crear el nuevo trabajo
+      success: El nuevo trabajo se ha creado
+    events:
+      accept:
+        error: El trabajo no se ha podido aceptar. Compruebe que tenga seleccionado un presupuesto
+        success: El trabajo se ha aceptado
+        title: Aceptar
+      complete:
+        error: El trabajo no se ha podido marcar como completado
+        success: El trabajo se ha completado
+        title: Completar
+      install:
+        error: El trabajo no se ha podido poner en proces de instalación
+        success: El trabajo está en proceso de instalación
+        title: Instalar
+      measure:
+        error: El trabajo no se ha podido pasar a "medido". Compruebe que tiene medidas asociadas al presupuesto aceptado
+        success: El trabajo se ha medido
+        title: Medir
+      order:
+        error: No se ha podido realizar el pedido de material
+        success: El material para realizar el trabajo se ha pedido
+        title: Pedir
+      receive:
+        error: El material no se ha podido marcar como "recibido"
+        success: El material se ha recibido
+        title: Recibir
+      wait:
+        error: El trabajo no se ha podido poner a la espera
+        success: El trabajo se ha puesto a la espera
+        title: Esperar
+    form:
+      address:
+        leave_blank_for_client_address: Dejar en blanco para utilizar la dirección del cliente
+      code:
+        example: Tienda / Dirección
+        leave_blank_for_automatic_code: Dejar en blanco para utilizar una referencia automática
+      create_estimate: Crear un nuevo presupuesto
+      create_measurement: Crear nuevas medidas
+      legend:
+        basic: Campos básicos de proyecto
+        estimates: Presupuestos
+        measurements: Medidas
+        elements: Elementos de montaje
+      select_no_estimate: Ningún presupuesto
+    general:
+      failure: La acción que intentaba realizar no ha podido resolverse correctamente
+    index:
+      legend: Proyectos
+    new_project: Nuevo proyecto
+    no_estimate_selected: Sin presupuesto
+    no_projects: No hay proyectos
+    show:
+      client_legend: Información de cliente
+      project_legend: Información del proyecto
+      shop_legend: Información de tienda
+    state:
+      accepted: Aceptado
+      completed: Completado
+      estimated: Presupuestado
+      install_pendant: Preparado para instalar
+      installing: Instalando
+      measured: Medido
+      ordered: Pedido
+      received: Recibido
+      waiting: A la espera
+    update:
+      failure: No se ha podido modificar el trabajo
+      success: El trabajo se ha actualizado con éxito

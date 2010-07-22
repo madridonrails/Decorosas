@@ -1,0 +1,11 @@
+es-ES:
+  estimate:
+    create:
+      success: El presupuesto se ha creado correctamente
+    error:
+      misvalued_ids: Ha habido un error en el mapeo de ids. 
+    form:
+      legend: Presupuesto
+      legend_measurements: Medidas
+    update:
+      success: El presupuesto se ha actualizado correctamente

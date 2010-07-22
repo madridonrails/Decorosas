@@ -1,0 +1,32 @@
+<ol>
+  <li>
+    <label><%= t'activerecord.attributes.user.login'%></label>
+    <%= text_field :user, :login %>
+  </li>
+  <li>
+    <label><%= t'activerecord.attributes.user.email'%></label>
+    <%= text_field :user, :email %>
+  </li>
+  <li>
+    <label><%= t'activerecord.attributes.user.password'%></label>
+    <%= password_field :user, :password %>
+  </li>
+  <li>
+    <label><%= t 'user.password_confirmation' %></label>
+    <%= password_field :user, :password_confirmation %>
+  </li>
+  <% if is_admin? %>
+  <li>
+    <label><%= t 'activerecord.attributes.user.admin' %></label>
+    <%= check_box :user, :admin %>
+  </li>
+  <li>
+    <label><%= t 'activerecord.attributes.user.shop_id' %></label>
+    <%= select(:user, :shop_id, Shop.all.collect{|s| [s.name, s.id]}) %>
+  </li>
+  <%end%>
+  <li>
+    <label>&nbsp;</label>
+    <%= submit_tag t('general.accept'), {:class => "button"} %>&nbsp;<%= link_to t('general.back'), users_url%>
+  </li>
+</ol>

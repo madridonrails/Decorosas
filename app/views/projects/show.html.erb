@@ -1,0 +1,5 @@
+<%= object_messages %>
+<div id="content" class="showinfo">
+  <%= render :partial => 'show' %>
+  <p class="add-link"><%= link_to t('general.edit'), edit_project_path(@project) %> | <%= link_to t('project.back_to_projects'), projects_path %></p>
+</div>

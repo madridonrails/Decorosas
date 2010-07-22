@@ -1,0 +1,9 @@
+<div id="element-area">
+  <span><b><%= t 'activerecord.attributes.element.description' %>: </b><%= @element.description %></span><br/>
+  <span><b><%= t 'activerecord.attributes.element.units'%>: </b><%= h @element.units %></span><br/>
+  <span><b><%= t 'activerecord.attributes.element.cost_price' %>: </b><%= h @element.cost_price %></span><br/>
+  <span><b><%= t 'activerecord.attributes.element.total_cost_price' %>: </b><%= h @element.total_cost_price %></span><br/>
+  <span><b><%= t 'activerecord.attributes.element.assembly_price' %>: </b><%= h @element.assembly_price %></span><br/>
+  <span><b><%= t 'activerecord.attributes.element.final_price' %>: </b><%= h @element.final_price %></span><br/>
+</div>
+<p class="add-link"><%= link_to t('general.edit'), edit_project_element_url(params[:project_id], @element) %> | <%= link_to t('general.back'), project_elements_url(params[:project_id]) %></p>

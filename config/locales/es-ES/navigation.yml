@@ -1,0 +1,9 @@
+es-ES:
+  navigation:
+    items:
+      clients: Clientes
+      projects: Proyectos
+      shops: Tiendas
+      users: Usuarios
+      edit_current_user: Editar usuario
+

@@ -1,0 +1,6 @@
+<div id ="user-area">
+  <span><b><%= t'activerecord.attributes.user.login'%>: </b><%= h @user.login %></span><br/>
+  <span><b><%= t'activerecord.attributes.user.email'%>: </b><%= h @user.email %></span><br/>
+  <span><b><%= t'activerecord.attributes.user.admin' %>: </b><%= @user.admin? ? t('general.yes') : t('general.no') %></span><br/>
+</div>
+<p class="add-link"><%= link_to t('general.edit'), edit_user_url(@user) %> | <%= link_to t('general.cancel'), users_url %></p>

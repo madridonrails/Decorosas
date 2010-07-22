@@ -1,0 +1,10 @@
+<colgroup><col/><col/><col/><col width="115"></colgroup>
+<tr>
+  <th><%= link_to t('activerecord.attributes.client.name') , clients_url(get_order('name')) %></th>
+
+  <th><%= link_to t('activerecord.attributes.client.email') , clients_url(get_order('email')) %></th>
+  <th><%= link_to t('activerecord.attributes.client.phone') , clients_url(get_order('phone')) %></th>
+  <th><%= link_to t('activerecord.attributes.client.address') , clients_url(get_order('address')) %></th>
+
+  <th><%= t('general.actions') %></th>
+</tr>

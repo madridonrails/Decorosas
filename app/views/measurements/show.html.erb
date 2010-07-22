@@ -1,0 +1,8 @@
+<div id="measurement-area">
+  <span><b><%= t 'activerecord.attributes.measurement.description' %>: </b><%= @measurement.description %></span><br/>
+  <span><b><%= t 'activerecord.attributes.measurement.notes'%>: </b><%= h @measurement.notes %></span><br/>
+  <% for image in @measurement.images do %>
+    <span><%= image_tag(image.data.url(:original)) %></span><br/>
+  <% end %>
+</div>
+<p class="add-link"><%= link_to t('general.edit'), edit_project_measurement_path(params[:project_id], @measurement) %> | <%= link_to t('general.back'), edit_project_path(params[:project_id]) %></p>

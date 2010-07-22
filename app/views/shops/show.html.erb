@@ -1,0 +1,5 @@
+<div id="shop-area">
+  <span><b><%= t 'activerecord.attributes.shop.name' %>: </b><%= h @shop.name %></span><br/>
+  <span><b><%= t 'activerecord.attributes.shop.address' %>: </b><%= h @shop.address %></span><br/>
+</div>
+<p class="add-link"><%= link_to t('general.edit'), edit_shop_url(@shop) %> | <%= link_to t('general.back'), shops_url %></p>

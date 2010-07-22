@@ -1,0 +1,8 @@
+      <colgroup><col/><col/><col width="115"></colgroup>
+      <tr>
+        <th><%= link_to t('activerecord.attributes.user.login') , users_url(get_order('login')) %></th>
+        <th><%= link_to t('activerecord.attributes.user.email'), users_url(get_order('email')) %></th>
+        <th><%= t('activerecord.attributes.user.shop_id') %></th>
+        <th><%= link_to t('activerecord.attributes.user.admin'), users_url(get_order('is_admin')) %></th>
+        <th><%= t 'general.actions' %></th>
+      </tr>

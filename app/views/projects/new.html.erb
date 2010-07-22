@@ -1,0 +1,6 @@
+<%= object_messages(@project) %>
+<div id="content" class="simpleform">
+  <%  form_for @project, :url => {:action => :create} do |f| %>
+    <%= render :partial => 'form', :locals => {:f => f} %>
+  <% end %>
+</div>

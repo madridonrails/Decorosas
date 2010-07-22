@@ -1,0 +1,23 @@
+<fieldset>
+  <legend><%= t'element.form.legend' %></legend>
+  <ol>
+    <li>
+      <%= f.label :description, t('activerecord.attributes.element.description') %>
+      <%= f.text_area(:description, :rows => 3) %>
+    </li>
+    <li>
+      <%= f.label :units, t('activerecord.attributes.element.units') %>
+      <%= f.text_field(:units) %>
+    </li>
+    <li>
+      <%= f.label :cost_price, t('activerecord.attributes.element.cost_price') %>
+      <%= f.text_field(:cost_price) %>
+    </li>
+    <li>
+      <%= f.label :assembly_price, t('activerecord.attributes.element.assembly_price') %>
+      <%= f.text_field(:assembly_price) %>
+    </li>
+  </ol>
+</fieldset>
+
+<%= submit_tag t('general.accept'), {:class => "button"}  %> &nbsp; <%= link_to t('general.cancel'), project_elements_path(params[:project_id]) %>

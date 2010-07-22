@@ -1,0 +1,6 @@
+<div id="estimate-area">
+  <span><b><%= t 'activerecord.attributes.estimate.description' %>: </b><%= @estimate.description %></span><br/>
+  <span><b><%= t 'activerecord.attributes.estimate.price' %>: </b><%= number_to_currency @estimate.price %></span><br/>
+  <span><b><%= t 'activerecord.attributes.estimate.notes'%>: </b><%= h @estimate.notes %></span><br/>
+</div>
+<p class="add-link"><%= link_to t('general.edit'), edit_project_estimate_path(params[:project_id], @estimate) %> | <%= link_to t('general.back'), edit_project_path(params[:project_id]) %></p>

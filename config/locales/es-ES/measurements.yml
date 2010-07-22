@@ -1,0 +1,11 @@
+es-ES:
+  measurement:
+    create:
+      success: La medición se ha creado correctamente
+    form:
+      add_image: Añadir imagen
+      legend: Medidas
+      legend_estimates: Presupuestos
+      legend_images: Imágenes
+    update:
+      success: Se ha actualizado la medición

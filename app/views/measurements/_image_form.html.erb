@@ -1,0 +1,5 @@
+    <% fields_for "measurement[image_attributes][]", image_form do |i| %>
+      <li><%= i.label :data, t('activerecord.attributes.image.data') %>
+        <%= i.file_field :data, :index => nil %>
+      </li>
+    <% end %>

@@ -1,0 +1,21 @@
+<%= object_messages %>
+<div id="content" class="simpleform">
+  <fieldset>
+    <legend><%= t('shop.index.legend')%></legend>
+  </fieldset>
+  <div id="table-area">
+
+    <p class="add-link">
+      <%= link_to t('general.new'), new_shop_path %> <%=image_tag 'icon-add.gif', :align => "absmiddle"%>
+    </p>
+    <br/>
+
+    <% unless @shops.empty? %>
+      <table class="tabla">
+        <%= render :partial => 'header' %>
+        <%= render :partial => 'shop', :collection => @shops %>
+      </table>
+    <% end %>
+  </div>
+<%= will_paginate @shops, :prev_label => t('pagination.prev'), :next_label => t('pagination.next'), :params => params.clone.delete_if{|k,v| k == 'controller' || k == 'action' || k == 'page'}, :class => 'page-navigation' %>
+</div>

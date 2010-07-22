@@ -1,0 +1,11 @@
+    <colgroup><col/><col/><col/><col/><col/><col/><col/><col width="130"/></colgroup>
+    <tr>
+      <th><%= link_to t('activerecord.attributes.project.code'), projects_url(get_order('code')) %> <!--img src="/images/icon-projectdown.gif" width="13" height="13" align="absmiddle"--> </th>
+      <th><%= t('activerecord.attributes.project.client_id')%></th>
+      <th><%= link_to t('activerecord.attributes.project.address'), projects_url(get_order('address')) %></th>
+      <th><%= t('activerecord.attributes.project.shop_id')%></th>
+      <th><%= t('activerecord.attributes.project.accepted_estimate_id') %></th>
+      <th><%= t('activerecord.attributes.project.state') %></th>
+      <th><%= t('general.state_transitions') %></th>
+      <th><%= t('general.actions') %></th>
+    </tr>

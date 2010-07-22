@@ -1,0 +1,20 @@
+<%unless project.blank?%>
+   <% td_class = cycle('', ' class="impar"') %>
+   <tr>
+    <td<%= td_class %>><%=h project.code %></td>
+    <td<%= td_class %>><%=h project.client.name rescue '' %></td>
+    <td<%= td_class %>><%=h project.address %></td>
+    <td<%= td_class %>><%=h project.shop.name rescue '' %></td>
+    <td<%= td_class %>><%=number_to_currency(project.estimate.price) rescue t'project.no_estimate_selected' %></td>
+    <td<%= td_class %>><%=t"project.state.#{project.state}" %></td>
+    <td<%= td_class %>><%= links_to_transitions project %></td>
+    <td align="center"<%= td_class %>>
+      <%= link_to image_tag('icon-view.gif', :alt => (t 'general.show'),  :title => (t 'general.show') ), project_url(project) %>
+      <%= link_to image_tag('icon-items.png', :alt => (t'general.see_items'), :title => (t'general.see_items')), project_elements_url(project) if is_admin? %>
+      <%= link_to image_tag('icon-edit.gif', :alt => (t 'general.edit'), :title => (t 'general.edit') ), edit_project_path(project) %>
+      <% if is_admin? or is_current_shop? project.shop %>
+        <%= link_to image_tag('icon-delete.gif', :alt => (t 'general.delete'), :title =>  (t 'general.delete') ), project_url(project),:method => :delete, :confirm => (t 'general.are_you_sure')  %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>

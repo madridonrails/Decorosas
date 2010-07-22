@@ -1,0 +1,12 @@
+es-ES:
+  element:
+    form:
+      legend: Elemento de montaje
+    index:
+      legend: Elementos de montaje
+    management: Adminsistración de elementos del proyecto
+    no_elements: No hay elementos
+    total_price_for_project: Coste total del proyecto
+    update:
+      error: No se ha podido actualizar la información del elemento
+      success: El elemento se ha actualizado correctamente

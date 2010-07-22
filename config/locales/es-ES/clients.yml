@@ -1,0 +1,6 @@
+es-ES:
+  client:
+    index:
+      legend: Clientes
+    new_client: Nuevo cliente
+    no_client: No hay clientes

@@ -1,0 +1,45 @@
+<fieldset>
+  <legend><%= t'measurement.form.legend'%></legend>
+  <ol>
+    <li>
+      <%= f.label :description, t('activerecord.attributes.measurement.description') %>
+      <%= f.text_area(:description, :rows => 3) %>
+    </li>
+    <li>
+      <%= f.label :notes, t('activerecord.attributes.measurement.notes') %>
+      <%= f.text_area(:notes, :rows => 3) %>
+    </li>
+  </ol>
+</fieldset>
+<fieldset>
+  <legend><%= t'measurement.form.legend_images'%></legend>
+  <div id="measurement-images">
+    <% unless @measurement.images.blank? %>
+      <% for image in @measurement.images %>
+        <%=  link_to image_tag(image.data.url(:thumb)), url_for(image.data.url(:original)), :target => 'blank' %>
+        <span class="image-actions">
+          <%= link_to image_tag('icon-delete.gif', :alt => (t 'general.delete'), :title =>  (t 'general.delete') ), project_measurement_image_path(params[:project_id], @measurement.id, image.id),:method => :delete, :confirm => (t 'general.are_you_sure')  %>
+        </span>
+        <br/>
+      <% end %>
+    <% end %>
+  </div>
+  <p>
+    <label>&nbsp;</label>
+    <%= link_to_function t'measurement.form.add_image' do |page|
+      page.insert_html :bottom, 'measurement-images', :partial => 'image_form', :object => Image.new
+    end %> <%=image_tag 'icon-add.gif'%>
+  </p>
+</fieldset>
+<fieldset>
+  <legend><%= t'measurement.form.legend_estimates' %></legend>
+  <ol>
+    <% for estimate in Estimate.find_all_by_project_id(params[:project_id]) %>
+      <li>
+        <%= check_box_tag('measurement[estimate_ids][]', estimate.id, @measurement.estimates.include?(estimate), :id => "estimate_#{estimate.id}") %>
+        <%= f.label "estimate_#{estimate.id}", estimate.description %>
+      </li>
+    <% end %>
+  </ol>
+  <%= submit_tag t('general.accept'), {:class => "button"}  %> &nbsp; <%= link_to t('general.cancel'), edit_project_path(params[:project_id]) %>
+</fieldset>

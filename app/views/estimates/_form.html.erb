@@ -1,0 +1,33 @@
+<fieldset>
+  <legend><%= t'estimate.form.legend'%></legend>
+  <ol>
+    <li>
+      <%= f.label :description, t('activerecord.attributes.estimate.description') %>
+      <%= f.text_area(:description, :rows => 3) %>
+    </li>
+    <li>
+      <%= f.label :price, t('activerecord.attributes.estimate.price') %>
+      <%= f.text_field(:price) %>
+    </li>
+    <li>
+      <%= f.label :notes, t('activerecord.attributes.estimate.notes') %>
+      <%= f.text_area(:notes, :rows => 3) %>
+    </li>
+  </ol>
+</fieldset>
+<% measurements = Measurement.find_all_by_project_id(params[:project_id]) %>
+<% unless measurements.empty? %>
+<fieldset>
+  <legend><%= t'estimate.form.legend_measurements'%></legend>
+  <ol>
+      <% for measurement in measurements %>
+      <li>
+        <%= check_box_tag('estimate[measurement_ids][]', measurement.id, @estimate.measurements.include?(measurement), :id => "measurement_#{measurement.id}") %>
+        <%= f.label "measurement_#{measurement.id}", measurement.description %>
+      </li>
+      <% end %>
+  </ol>
+</fieldset>
+<% end %>
+  <%= submit_tag t('general.accept'), {:class => "button"}  %> &nbsp; <%= link_to t('general.cancel'), edit_project_path(params[:project_id]) %>
+

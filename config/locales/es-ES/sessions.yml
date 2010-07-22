@@ -1,0 +1,5 @@
+es-ES:
+  session:
+    login:
+      failure: No se ha podido acceder. Compruebe su usuario y su contraseña
+    close_session: Cerrar sesión

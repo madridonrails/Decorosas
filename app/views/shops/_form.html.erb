@@ -1,0 +1,18 @@
+<ol>
+  <li>
+   <label><%= t 'activerecord.attributes.shop.name' %></label>
+    <%= text_field :shop, :name %>
+  </li>
+  <li>
+    <label><%= t 'activerecord.attributes.shop.address' %></label>
+    <%= text_area :shop, :address, :rows => 3 %>
+  </li>
+  <li>
+    <label><%= t 'activerecord.attributes.shop.central' %></label>
+    <%= check_box :shop, :central %>
+  </li>
+  <li>
+    <label>&nbsp;</label>
+    <%= submit_tag t('general.accept'), {:class => "button"} %>&nbsp; <%= link_to t('general.cancel'), shops_url %>
+  </li>
+</ol>

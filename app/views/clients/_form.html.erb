@@ -1,0 +1,30 @@
+<ol>
+  <li>
+   <label><%= t 'activerecord.attributes.client.name' %></label>
+    <%= text_field :client, :name %>
+  </li>
+  <li>
+    <label>e-mail</label>
+    <%= text_field :client, :email %>
+  </li>
+  <li>
+    <label><%= t 'activerecord.attributes.client.phone' %></label>
+    <%= text_field :client, :phone %>
+  </li>
+  <li>
+    <label><%= t 'activerecord.attributes.client.address' %></label>
+    <%= text_area :client, :address, :rows => 3 %>
+  </li>
+  <li>
+    <label><%= t 'activerecord.attributes.client.contact_schedule' %></label>
+    <%= text_area :client, :contact_schedule, :rows => 3 %>
+  </li>
+  <li>
+    <label><%= t 'activerecord.attributes.client.notes' %></label>
+    <%= text_area :client, :notes, :rows => 3 %>
+  </li>
+  <li>
+    <label>&nbsp;</label>
+    <%= submit_tag t('general.accept'), {:class => "button"} %>&nbsp; <%= link_to t('general.cancel'), clients_url %>
+  </li>
+</ol>

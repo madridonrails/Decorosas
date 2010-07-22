@@ -1,0 +1,14 @@
+<%unless element.blank?%>
+  <% td_class = cycle('', ' class="impar"') %>
+  <tr>
+    <td<%= td_class %>><%= h element.description %> </td>
+    <td<%= td_class %>><%= h element.units %> </td>
+    <td<%= td_class %>><%= h element.cost_price %> </td>
+    <td<%= td_class %>><%= h element.assembly_price %></td>
+    <td<%= td_class %>>
+       <%= link_to image_tag('icon-view.gif', :alt => t('general.show'), :title => t('general.show' )), project_element_url(params[:project_id], element) %>
+       <%= link_to image_tag('icon-edit.gif', :alt => t('general.edit'), :title => t('general.edit') ), edit_project_element_url(params[:project_id], element) %>
+       <%= link_to image_tag('icon-delete.gif', :alt => t('general.delete'), :title => t('general.delete') ), project_element_url(params[:project_id], element), :method => 'delete', :confirm => t('general.are_you_sure') %>
+    </td>
+  </tr>
+<% end %>

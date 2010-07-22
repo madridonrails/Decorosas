@@ -1,0 +1,24 @@
+es-ES: 
+  general:
+    add: Añadir
+    are_you_sure: ¿ Estas seguro ?
+    accept: Aceptar
+    access: Acceso
+    actions: Acciones
+    back: Volver
+    cancel: Cancelar
+    delete: Borrar
+    edit: Editar
+    exit: Salir
+    filter: Filtrar
+    new: Nuevo
+    "no": "No"
+    not_enough_permissions: No tiene suficientes permisos para ejecutar esta acción
+    see_items: Ver elementos
+    show: Ver
+    state_transitions: Cambios de estado
+    update: Modificar
+    url_params_error: Error al intentar ejecutar la acción solicitada. Los ids suministrados no son correctos
+    "yes": Sí
+    you_must_be_admin: Tienes que ser el administrador
+    you_must_be_logged_in: Tienes que estar logado

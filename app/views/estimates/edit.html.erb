@@ -1,0 +1,6 @@
+<%= object_messages(@estimate) %>
+<div id="content" class="simpleform">
+  <%  form_for @estimate, :url => {:action => :update} do |f| %>
+    <%= render :partial => 'form', :locals => {:f => f} %>
+  <% end %>
+</div>
